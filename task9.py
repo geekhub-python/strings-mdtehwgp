@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
 string = input('string: ')
-f = string.find('f')
-s = string[f + 1:].find('f')
-if f == -1:
-    print(-2)
-elif s == -1:
-    print(-1)
+
+first_entry = string.find('f')         # index 1-st entry if exist or '-1'
+search_entry = string[first_entry+1:]  # search 2-nd entry
+second_entry = search_entry.find('f')  # index 2-nd entry if exist or '-1'
+
+if first_entry != -1 and second_entry != -1:
+    print('index second entry', second_entry+len(string[:first_entry+1]))
+elif first_entry == -1:
+    print('-2')
 else:
-    print(f + s + 1)
-!!!!!!!!!!!!!!
+    print(second_entry)
